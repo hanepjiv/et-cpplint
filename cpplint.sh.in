@@ -1,0 +1,23 @@
+#!/bin/env sh
+
+
+if [ "x@PYTHON2@" = "xPYTHON2-NOTFOUND" ]; then
+    echo SKIP!
+    exit 0
+    #exit 77
+fi
+
+ret=0
+for e in hh cc hpp cpp; do
+    for i in `find ${SRCDIR} -iname \*.$e -print`; do
+        python2 ${TOP_SRCDIR}/cpplint.py \
+                --extensions=cc,h,cpp,cu,cuh,hh,hpp \
+                --filter=-readability/streams \
+                $i
+        r=$?
+        if [ $r -ne 0 ]; then
+            ret=$r
+        fi
+    done
+done
+exit $ret
