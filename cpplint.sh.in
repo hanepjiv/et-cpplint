@@ -10,7 +10,7 @@ fi
 ret=0
 for e in hh cc hpp cpp; do
     for i in `find ${SRCDIR} -iname \*.$e -print`; do
-        python2 ${TOP_SRCDIR}/cpplint.py \
+        ${CPPLINT} \
                 --extensions=cc,h,cpp,cu,cuh,hh,hpp \
                 --filter=-readability/streams \
                 $i
