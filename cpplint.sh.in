@@ -7,17 +7,11 @@ if [ "x@PYTHON2@" = "xPYTHON2-NOTFOUND" ]; then
     #exit 77
 fi
 
-ret=0
-for e in hh cc hpp cpp; do
-    for i in `find ${SRCDIR} -iname \*.$e -print`; do
-        ${CPPLINT} \
-                --extensions=cc,h,cpp,cu,cuh,hh,hpp \
-                --filter=-readability/streams \
-                $i
-        r=$?
-        if [ $r -ne 0 ]; then
-            ret=$r
-        fi
-    done
-done
-exit $ret
+find ${SRCDIR} -type f \
+     \( -name  \*.hh -o -name  \*.cc \
+     -o -name \*.hpp -o -name \*.cpp \) \
+     -exec ${CPPLINT} \
+     --extensions=cc,h,cpp,cu,cuh,hh,hpp \
+     --filter=-readability/streams \
+     {} +
+exit $?
