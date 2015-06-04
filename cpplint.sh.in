@@ -34,5 +34,6 @@ find ${SRCDIR} -type f \
      -o -name \*.hpp -o -name \*.cpp \) \
      -exec ${CPPLINT} \
      --extensions=cc,h,cpp,cu,cuh,hh,hpp \
+     --filter=-build/c++11,-readability/function,-runtime/references \
      {} +
 exit $?
