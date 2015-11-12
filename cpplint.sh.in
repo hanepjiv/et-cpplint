@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-if [ "x@PYTHON2@" = "xPYTHON2-NOTFOUND" ]; then
+if [ "x@PYTHON@" = "xPYTHON-NOTFOUND" ]; then
     echo SKIP!
     exit 0
     #exit 77
