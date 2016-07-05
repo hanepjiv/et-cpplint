@@ -11,7 +11,7 @@
 ##  @author hanepjiv <hanepjiv@gmail.com>
 ##  @copyright The MIT License (MIT)
 ##  @since 2014/06/24
-##  @date 2016/05/11
+##  @date 2016/07/05
 
 if [ "x@PYTHON@" = "xPYTHON-NOTFOUND" ]; then
     echo SKIP!
