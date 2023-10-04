@@ -10,9 +10,9 @@
 ##  @author hanepjiv <hanepjiv@gmail.com>
 ##  @copyright The MIT License (MIT)
 ##  @since 2014/06/24
-##  @date 2018/01/30
+##  @date 2023/09/30
 
-find_program(PYTHON python2)
+find_program(PYTHON python3)
 if(NOT PYTHON)
   message(FATAL_ERROR "Test feature requires python.")
 endif()
