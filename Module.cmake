@@ -10,15 +10,15 @@
 ##  @author hanepjiv <hanepjiv@gmail.com>
 ##  @copyright The MIT License (MIT)
 ##  @since 2014/06/24
-##  @date 2023/09/30
+##  @date 2023/10/07
 
 find_program(PYTHON python3)
 if(NOT PYTHON)
   message(FATAL_ERROR "Test feature requires python.")
 endif()
 message(STATUS "${PYTHON}")
-configure_file(${abs_top_srcdir}/tools/et-cpplint/cpplint.sh.in
-  tools/et-cpplint/cpplint.sh @ONLY)
-set(CPPLINT "${PYTHON} ${abs_top_srcdir}/tools/et-cpplint/cpplint.py")
+configure_file(${abs_top_srcdir}/../dependencies/et-cpplint/cpplint.sh.in
+  ${CMAKE_CURRENT_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh @ONLY)
+set(CPPLINT "${PYTHON} ${abs_top_srcdir}/../dependencies/et-cpplint/cpplint.py")
 set(CPPLINT_FLAGS "")
-set(CPPLINT_SH /bin/env sh ${CMAKE_CURRENT_BINARY_DIR}/tools/et-cpplint/cpplint.sh)
+set(CPPLINT_SH /bin/env sh ${CMAKE_CURRENT_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh)
