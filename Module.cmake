@@ -17,8 +17,8 @@ if(NOT PYTHON)
   message(FATAL_ERROR "Test feature requires python.")
 endif()
 message(STATUS "${PYTHON}")
-configure_file(${abs_top_srcdir}/../dependencies/et-cpplint/cpplint.sh.in
-  ${CMAKE_CURRENT_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh @ONLY)
-set(CPPLINT "${PYTHON} ${abs_top_srcdir}/../dependencies/et-cpplint/cpplint.py")
+configure_file(${CMAKE_SOURCE_DIR}/../et-cpplint/cpplint.sh.in
+  ${CMAKE_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh @ONLY)
+set(CPPLINT "${PYTHON} ${CMAKE_SOURCE_DIR}/../et-cpplint/cpplint.py")
 set(CPPLINT_FLAGS "")
-set(CPPLINT_SH /bin/env sh ${CMAKE_CURRENT_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh)
+set(CPPLINT_SH /bin/env sh ${CMAKE_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh)
