@@ -16,9 +16,12 @@ find_program(PYTHON python3)
 if(NOT PYTHON)
   message(FATAL_ERROR "Test feature requires python.")
 endif()
+
+set(src "${CMAKE_SOURCE_DIR}/../et-cpplint/cpplint.sh.in")
+set(target "${CMAKE_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh")
+
 message(STATUS "${PYTHON}")
-configure_file(${CMAKE_SOURCE_DIR}/../et-cpplint/cpplint.sh.in
-  ${CMAKE_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh @ONLY)
+configure_file(${src} ${target} @ONLY)
 set(CPPLINT "${PYTHON} ${CMAKE_SOURCE_DIR}/../et-cpplint/cpplint.py")
 set(CPPLINT_FLAGS "")
-set(CPPLINT_SH /bin/env sh ${CMAKE_BINARY_DIR}/dependencies/et-cpplint/cpplint.sh)
+set(CPPLINT_SH /bin/env sh ${target})
